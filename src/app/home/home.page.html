@@ -1,20 +1,91 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Ion Blank</ion-title>
+    
   </ion-toolbar>
 </ion-header>
+<ion-content padding>
+  <form [formGroup]="testForm" >
+    
+  <ion-input type="text" placeholder="Enter task" formControlName="taskName" ></ion-input>
+  <ion-input type="text" placeholder="Enter name"  formControlName="name"></ion-input>
+  <ion-input type="text" placeholder="Enter address" formControlName ="address"></ion-input>
+  <ion-input type="text" placeholder="Enter lastname"  formControlName ="lastname"></ion-input>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-button class="ion-add" (click)="addTask()"> <ion-icon name="add"></ion-icon> add</ion-button>
+</form>
+
+<!-- <form [formGroup] ="testForm" >
+  <ion-input type="text" placeholder="Enter task" formControlName="taskName" [(ngModel)] ="taskName"></ion-input>
+  <ion-input type="text" placeholder="Enter name"  [(ngModel)] ="beta.name"></ion-input>
+  <ion-input type="text" placeholder="Enter address"  [(ngModel)] ="beta.address"></ion-input>
+  <ion-input type="text" placeholder="Enter lastname"  [(ngModel)] ="beta.lastname"></ion-input>
+
+<ion-button class="ion-add" (click)="addTask()"> <ion-icon name="add"></ion-icon> add</ion-button>
+</form> -->
+{{tasklist}}
+<div padding>
+
+  <ion-list>
+    <ion-item *ngFor="let todo of tasklist; let i = index">
+      {{todo}}
+      <div class="ion-note">
+        <ion-button (click) ="editNote(i)">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button (click) ="deleteNote(i)">
+          <ion-icon name="trash" ></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+    <ion-button (click) = "sendData()">submit</ion-button>
+  </ion-list>
+</div>
+
+
+<ion-list>
+  <ion-list-header>
+    <ion-label>
+      Interface Options
+    </ion-label>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>Alert</ion-label>
+    <ion-select [interfaceOptions]="customAlertOptions" interface="alert" multiple="true" placeholder="Select One">
+      <!-- <ion-select-option value="bacon">Bacon</ion-select-option>
+      <ion-select-option value="olives">Black Olives</ion-select-option>
+      <ion-select-option value="xcheese">Extra Cheese</ion-select-option>
+      <ion-select-option value="peppers">Green Peppers</ion-select-option>
+      <ion-select-option value="mushrooms">Mushrooms</ion-select-option>
+      <ion-select-option value="onions">Onions</ion-select-option>
+      <ion-select-option value="pepperoni">Pepperoni</ion-select-option>
+      <ion-select-option value="pineapple">Pineapple</ion-select-option>
+      <ion-select-option value="sausage">Sausage</ion-select-option>
+      <ion-select-option value="Spinach">Spinach</ion-select-option> -->
+      
+    </ion-select>
+  </ion-item>
+
+ <ion-range color="danger"  min="1000" max="2000" pin="true" snaps="true" dualKnobs="true"></ion-range>
+
+
+</ion-list>
+
+
+<ion-toolbar>
+  <ion-searchbar>
+
+  </ion-searchbar>
+</ion-toolbar>
+
+<ion-list>
+  <ion-item>suraj1111</ion-item>
+  <ion-item>angular</ion-item>
+</ion-list>
+
+{{error}}
+
 </ion-content>

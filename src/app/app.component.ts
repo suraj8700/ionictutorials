@@ -24,4 +24,8 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
+  test(){
+    alert('this is a test');
+  }
 }
